@@ -218,7 +218,7 @@ public final class Notification {
                 continue;
 
             PendingIntent pi = PendingIntent.getBroadcast(
-                    context, 0, intent, FLAG_CANCEL_CURRENT);
+                    context, 0, intent, PendingIntent.FLAG_IMMUTABLE | FLAG_CANCEL_CURRENT);
 
             try {
                 switch (options.getPrio()) {
@@ -305,7 +305,7 @@ public final class Notification {
             Intent intent = new Intent(action);
 
             PendingIntent pi = PendingIntent.getBroadcast(
-                    context, 0, intent, 0);
+                    context, 0, intent, PendingIntent.FLAG_IMMUTABLE | 0);
 
             if (pi != null) {
                 getAlarmMgr().cancel(pi);
